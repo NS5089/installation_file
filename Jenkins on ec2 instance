@@ -1,23 +1,32 @@
-sudo su-
-yum install java-1.8*
-java -version
-ls
-vi .bash_profile
+steps  : Jenkins installation on linux 
 
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/
+sudo yum update –y 
 
- 
+sudo yum install wget
+yum install java-1.8.0-openjdk
 
-echo $PATH
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09–2.amzn2.0.1.x86_64
+export PATH
+sudo alternatives --config java
 
-NOTE : We can see the path 
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
 
-yum install wget -y
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-
-sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
-
- yum install jenkins
+sudo yum install jenkins
 
 service jenkins start
+
+Connect to http://<your_server_public_DNS>:8080 
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+
+
+Install git in the server and clone the repo by using the below commands
+
+yum install git 
+
+git clone URL
