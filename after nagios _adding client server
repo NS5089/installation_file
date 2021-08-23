@@ -23,6 +23,7 @@ systemctl enable nrpe.service
 vi /usr/local/nagios/etc/nrpe.cfg
 
 allowed_hosts=127.0.0.1,22.33.45.34
+(add Nagios server IP address )
 systemctl start nrpe.service
 
 /usr/local/nagios/libexec/check_nrpe -H 127.0.0.1
